@@ -1,0 +1,20 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Ready to commit changes!'
+
+echo 'Clean Project'
+
+dotnet clean
+
+echo 'Formatting and Linting code'
+
+dotnet husky run --group pre-commit
+
+echo 'Building code'
+
+dotnet build
+
+echo 'Testing code'
+
+dotnet test

@@ -1,0 +1,19 @@
+{
+   "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+   "tasks": [
+      {
+         "name": "dotnet-format-staged-files",
+         "group": "pre-commit",
+         "command": "dotnet",
+         "args": [ "dotnet-format", "--include", "${staged}" ],
+         "include": ["**/*.cs"]
+      },
+      {
+         "name": "dotnet-csharpier-staged-files",
+         "group": "pre-commit",
+         "command": "dotnet",
+         "args": [ "csharpier" , "${staged}" ],
+         "include": ["**/*.cs"]
+      }
+   ]
+}
