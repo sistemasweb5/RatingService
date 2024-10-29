@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE IF NOT EXISTS Rating (
+CREATE TABLE IF NOT EXISTS rating (
                                       Rating_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     User_id UUID NOT NULL UNIQUE,
     Average_rating DECIMAL(3, 2) DEFAULT 0.0,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Rating (
     Count_1_star INTEGER DEFAULT 0
     );
 
-CREATE TABLE IF NOT EXISTS Review (
+CREATE TABLE IF NOT EXISTS review (
     Review_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     Review_text TEXT,
     Job_id UUID NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Review (
     FOREIGN KEY (Reviewed_worker_id) REFERENCES Rating(User_id) ON DELETE CASCADE
     );
 
-CREATE TABLE IF NOT EXISTS Image (
+CREATE TABLE IF NOT EXISTS image (
                                      Image_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     Review_id UUID NOT NULL REFERENCES Review(Review_id) ON DELETE CASCADE,
     Image_url VARCHAR(255) NOT NULL,
