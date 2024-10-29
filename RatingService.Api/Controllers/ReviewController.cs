@@ -8,11 +8,11 @@ namespace RatingService.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ReviewsController : ControllerBase
+public class ReviewController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public ReviewsController(IMediator mediator)
+    public ReviewController(IMediator mediator)
     {
         _mediator = mediator;
     }
